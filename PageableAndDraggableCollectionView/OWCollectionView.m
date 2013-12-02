@@ -8,6 +8,7 @@
 
 #import "OWCollectionView.h"
 #import "OWPagingLayout.h"
+#import "OWShakeableCVCell.h"
 
 CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
 {
@@ -109,11 +110,14 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
         
         [layouter setHiddenIndexPath:indexPath];
         [layouter invalidateLayout];
+        
+        [self startShake];
 
     }
     else {
         canMoveable = NO;
-        
+        [self stopShake];
+
         if (!layouter.fromIndexPath || !layouter.toIndexPath) {
             [self animateRemoveMockCell:nil];
             return;
@@ -239,6 +243,21 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+}
+
+#pragma mark shake
+- (void)startShake
+{
+    for (OWShakeableCVCell *cell in self.visibleCells) {
+        [cell startShake];
+    }
+}
+
+- (void)stopShake
+{
+    for (OWShakeableCVCell *cell in self.visibleCells) {
+        [cell stopShake];
+    }
 }
 
 #pragma mark gesture delegate

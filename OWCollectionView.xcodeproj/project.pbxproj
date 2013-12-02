@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C413297184C60BC005F9E4F /* OWShakeableCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C413296184C60BC005F9E4F /* OWShakeableCVCell.m */; };
 		3C9F95471846D9FD001AC3C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9F95461846D9FD001AC3C8 /* Foundation.framework */; };
 		3C9F95491846D9FD001AC3C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9F95481846D9FD001AC3C8 /* CoreGraphics.framework */; };
 		3C9F954B1846D9FD001AC3C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C9F954A1846D9FD001AC3C8 /* UIKit.framework */; };
@@ -46,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C413295184C60BC005F9E4F /* OWShakeableCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWShakeableCVCell.h; sourceTree = "<group>"; };
+		3C413296184C60BC005F9E4F /* OWShakeableCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWShakeableCVCell.m; sourceTree = "<group>"; };
 		3C9F95431846D9FD001AC3C8 /* OWCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OWCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C9F95461846D9FD001AC3C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3C9F95481846D9FD001AC3C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -173,6 +176,8 @@
 				3C9F957D1846DBB7001AC3C8 /* OWCollectionView.m */,
 				3C9F957F1846DE78001AC3C8 /* OWPagingLayout.h */,
 				3C9F95801846DE78001AC3C8 /* OWPagingLayout.m */,
+				3C413295184C60BC005F9E4F /* OWShakeableCVCell.h */,
+				3C413296184C60BC005F9E4F /* OWShakeableCVCell.m */,
 			);
 			name = "collection view";
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 				3C9F95571846D9FD001AC3C8 /* OWAppDelegate.m in Sources */,
 				3C9F958A1846EFF6001AC3C8 /* DemoCell.m in Sources */,
 				3C9F95811846DE78001AC3C8 /* OWPagingLayout.m in Sources */,
+				3C413297184C60BC005F9E4F /* OWShakeableCVCell.m in Sources */,
 				3C9F957E1846DBB7001AC3C8 /* OWCollectionView.m in Sources */,
 				3C9F95851846ED5D001AC3C8 /* DemoViewController.m in Sources */,
 				3C9F95531846D9FD001AC3C8 /* main.m in Sources */,

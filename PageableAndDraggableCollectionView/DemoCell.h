@@ -1,14 +1,14 @@
 //
 //  ApplicationCollectionCell.h
-//  LongYuanDigest
+//  PageableAndDraggableCollectionView
 //
-//  Created by 龙源 on 13-10-18.
-//  Copyright (c) 2013年 longyuan. All rights reserved.
-//
+//  Created by grenlight on 13-11-28.
+//  Copyright (c) 2013年 oowwww. All rights reserved.
 
 #import <UIKit/UIKit.h>
+#import "OWShakeableCVCell.h"
 
-@interface DemoCell : UICollectionViewCell
+@interface DemoCell : OWShakeableCVCell
 {
     IBOutlet UILabel           *titleLB;
     IBOutlet UIImageView        *iconView;

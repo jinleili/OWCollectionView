@@ -1,9 +1,9 @@
 //
 //  ApplicationCollectionCell.m
-//  LongYuanDigest
+//  PageableAndDraggableCollectionView
 //
-//  Created by 龙源 on 13-10-18.
-//  Copyright (c) 2013年 longyuan. All rights reserved.
+//  Created by grenlight on 13-11-28.
+//  Copyright (c) 2013年 oowwww. All rights reserved.
 //
 
 #import "DemoCell.h"
