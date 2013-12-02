@@ -86,7 +86,6 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
         if (!indexPath) {
             return;
         }
-        NSLog(@"calculate page");
         currentPage = self.contentOffset.x/CGRectGetWidth(self.bounds);
         canMoveable = YES;
         
@@ -177,6 +176,8 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
         
         [self ifNeedsPaging:movePoint];
         
+        if (isPaging) return;
+        
         NSIndexPath *indexPath = [self indexPathForItemClosestToPoint:movePoint];
         if (indexPath && ![indexPath isEqual:layouter.fromIndexPath]) {
             if (self.owDelegate) {
@@ -197,17 +198,33 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
     
     float distance = self.contentOffset.x-appWidth*currentPage;
     if (distance < 0.1 && distance > (-0.1)) {
-        CGRect rightBounds = CGRectMake(appWidth*(currentPage + 1) - layouter.itemSize.width/2.0f, 0, layouter.itemSize.width, appHeight);
-        if (CGRectContainsPoint(rightBounds, movePoint)) {
+        BOOL canPageToNext = (currentPage + 1) < layouter.pageCount;
+        BOOL canPageToPre = currentPage > 0;
+        
+        CGRect bounds = CGRectMake(appWidth*(currentPage + 1) - layouter.itemSize.width/2.0f, 0, layouter.itemSize.width, appHeight);
+        if (CGRectContainsPoint(bounds, movePoint) && canPageToNext) {
             NSLog(@"paging next");
-            currentPage++;
-            isPaging = YES;
-            CGRect nextPageRect = CGRectMake(appWidth*currentPage, CGRectGetMinY(self.frame), appWidth, CGRectGetHeight(self.frame));
-            [self scrollRectToVisible:nextPageRect animated:YES];
-            
-            [self performSelector:@selector(resetPagingParameter) withObject:Nil afterDelay:0.4];
+            [self pagingAnimation:1];
+
+        }
+        else if (canPageToPre) {
+            bounds.origin.x -= appWidth;
+            if (CGRectContainsPoint(bounds, movePoint)) {
+                NSLog(@"paging pre");
+                [self pagingAnimation:-1];
+            }
         }
     }
+}
+
+- (void)pagingAnimation:(int)pageParam
+{
+    currentPage += pageParam;
+    isPaging = YES;
+    
+    CGRect nextPageRect = CGRectMake(appWidth*currentPage, CGRectGetMinY(self.frame), appWidth, CGRectGetHeight(self.frame));
+    [self scrollRectToVisible:nextPageRect animated:YES];
+    [self performSelector:@selector(resetPagingParameter) withObject:Nil afterDelay:0.5];
 }
 
 - (void)resetPagingParameter
