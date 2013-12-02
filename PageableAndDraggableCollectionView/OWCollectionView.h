@@ -34,9 +34,12 @@
     BOOL                isPaging;
     
     //没有长按cell的动作，不需要检测cell的移动
-    BOOL                canMoveable;
+    BOOL                isInLongPress;
 }
 @property (nonatomic, assign) id<OWCollectionViewDelegate> owDelegate;
 @property (nonatomic, assign) BOOL draggable;
+
+//产生了翻页后， visibleCells发生了变化，need reset shake animation.
+- (void)collectionViewPaged;
 
 @end

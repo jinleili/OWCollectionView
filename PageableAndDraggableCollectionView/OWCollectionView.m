@@ -35,7 +35,7 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
 {
     currentPage = 0;
     isPaging = NO;
-    canMoveable = NO;
+    isInLongPress = NO;
     
     longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc]
                                    initWithTarget:self
@@ -88,7 +88,7 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
             return;
         }
         currentPage = self.contentOffset.x/CGRectGetWidth(self.bounds);
-        canMoveable = YES;
+        isInLongPress = YES;
         
         layouter.fromIndexPath = indexPath;
 
@@ -114,9 +114,9 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
         [self startShake];
     }
     else {
-        canMoveable = NO;
+        isInLongPress = NO;
         if (!layouter.fromIndexPath || !layouter.toIndexPath) {
-            [self animateRemoveMockCell:nil];
+            [self animateMockCellToCorrectPosition:nil];
             return;
         }
         
@@ -128,13 +128,14 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
             layouter.toIndexPath = nil;
         } completion:nil];
         
-        [self animateRemoveMockCell:nil];
+        [self animateMockCellToCorrectPosition:nil];
     }
 }
 
-- (void)animateRemoveMockCell:(void(^)())completionBlock
+- (void)animateMockCellToCorrectPosition:(void(^)())completionBlock
 {
     UICollectionViewLayoutAttributes *layoutAttributes = [self layoutAttributesForItemAtIndexPath:layouter.hiddenIndexPath];
+    
     [UIView animateWithDuration:0.3
                      animations:^{
                          mockCell.center = layoutAttributes.center;
@@ -144,17 +145,26 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
                          self.scrollEnabled = YES;
                          self.pagingEnabled = YES;
 
-                         [mockCell removeFromSuperview];
-                         mockCell = nil;
                          [layouter setHiddenIndexPath:Nil];
                          [layouter invalidateLayout];
 
-                         [self stopShake];
+                         [self performSelector:@selector(removeMockCell) withObject:Nil afterDelay:0.1];
 
                          if (completionBlock)
                              completionBlock();
                      }];
 
+}
+
+- (void)removeMockCell
+{
+    [self stopShake];
+    [UIView animateWithDuration:0.3 animations:^{
+        [mockCell setAlpha:0.9];
+    } completion:^(BOOL finished) {
+        [mockCell removeFromSuperview];
+        mockCell = nil;
+    }];
 }
 
 - (NSIndexPath *)indexPathForItemClosestToPoint:(CGPoint)point
@@ -173,7 +183,7 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
 - (void)handlePanGesture:(UIPanGestureRecognizer *)sender
 {
     if(sender.state == UIGestureRecognizerStateChanged &&
-       layouter.fromIndexPath && canMoveable) {
+       layouter.fromIndexPath && isInLongPress) {
         CGPoint movePoint = [sender locationInView:self];
         mockCell.center = movePoint;
         
@@ -229,6 +239,7 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
     [self scrollRectToVisible:nextPageRect animated:YES];
     [self performSelector:@selector(resetPagingParameter) withObject:Nil afterDelay:0.5];
     [self performSelector:@selector(startShake) withObject:Nil afterDelay:0.4];
+
 }
 
 - (void)resetPagingParameter
@@ -243,6 +254,14 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+}
+
+- (void)collectionViewPaged
+{
+    if (isInLongPress)
+        [self startShake];
+    else
+        [self stopShake];
 }
 
 #pragma mark shake

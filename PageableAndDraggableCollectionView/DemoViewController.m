@@ -91,5 +91,6 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     pageControl.currentPage = floorf(scrollView.contentOffset.x/appWidth);
+    [collectionView collectionViewPaged];
 }
 @end

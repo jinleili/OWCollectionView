@@ -19,9 +19,15 @@
     return self;
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self setup];
+}
+
 - (void)setup
 {
-    self.backgroundColor = [UIColor blackColor];
+    self.backgroundColor = [UIColor clearColor];
     isShaking = NO;
     isInPressing = NO;
 }
@@ -68,8 +74,6 @@
 
 - (void)stopShake
 {
-    NSLog(@"stopShake");
-
     [UIView animateWithDuration:0.15
                           delay:0.0
                         options:(UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear)
