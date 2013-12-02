@@ -68,6 +68,8 @@
 
 - (void)stopShake
 {
+    NSLog(@"stopShake");
+
     [UIView animateWithDuration:0.15
                           delay:0.0
                         options:(UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveLinear)

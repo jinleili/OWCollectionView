@@ -112,12 +112,9 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
         [layouter invalidateLayout];
         
         [self startShake];
-
     }
     else {
         canMoveable = NO;
-        [self stopShake];
-
         if (!layouter.fromIndexPath || !layouter.toIndexPath) {
             [self animateRemoveMockCell:nil];
             return;
@@ -151,6 +148,8 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
                          mockCell = nil;
                          [layouter setHiddenIndexPath:Nil];
                          [layouter invalidateLayout];
+
+                         [self stopShake];
 
                          if (completionBlock)
                              completionBlock();
@@ -189,7 +188,7 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
                     layouter.hiddenIndexPath = indexPath;
                     layouter.toIndexPath = indexPath;
                 } completion:^(BOOL finished) {
-                    
+                    [self startShake];
                 }];
             }
         }
@@ -229,6 +228,7 @@ CGPoint CGPointAdd(CGPoint point1, CGPoint point2)
     CGRect nextPageRect = CGRectMake(appWidth*currentPage, CGRectGetMinY(self.frame), appWidth, CGRectGetHeight(self.frame));
     [self scrollRectToVisible:nextPageRect animated:YES];
     [self performSelector:@selector(resetPagingParameter) withObject:Nil afterDelay:0.5];
+    [self performSelector:@selector(startShake) withObject:Nil afterDelay:0.4];
 }
 
 - (void)resetPagingParameter

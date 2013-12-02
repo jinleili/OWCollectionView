@@ -19,6 +19,11 @@
     return self;
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+}
+
 - (void)setIcon:(NSString *)iconName title:(NSString *)title
 {
     NSString *iconPath = [[NSBundle mainBundle] pathForResource:iconName ofType:@"png"];

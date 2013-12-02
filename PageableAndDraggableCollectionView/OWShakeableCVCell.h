@@ -18,6 +18,7 @@
     BOOL    isShaking, isInPressing;
     
 }
+- (void)isNeedsShake;
 
 - (void)startShake;
 - (void)stopShake;
