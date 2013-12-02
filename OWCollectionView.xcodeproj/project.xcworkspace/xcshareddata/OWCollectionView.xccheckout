@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8EE7CA67-C9C1-422B-B8EB-23D717B7226E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>OWCollectionView</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FABBAA17-AA32-4632-B46C-DF6D3A576A0F</key>
+		<string>https://github.com/grenlight/iOSProjects</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OWCollectionView/OWCollectionView.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FABBAA17-AA32-4632-B46C-DF6D3A576A0F</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/grenlight/iOSProjects</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FABBAA17-AA32-4632-B46C-DF6D3A576A0F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FABBAA17-AA32-4632-B46C-DF6D3A576A0F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOSProjects</string>
+		</dict>
+	</array>
+</dict>
+</plist>
