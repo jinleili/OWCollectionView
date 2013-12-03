@@ -5,11 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>8EE7CA67-C9C1-422B-B8EB-23D717B7226E</string>
+	<string>FD718E8D-CC9A-4421-97D8-CD7718E8C77A</string>
 	<key>IDESourceControlProjectName</key>
 	<string>OWCollectionView</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>AFCE3F7C-159B-489A-B50F-95674B3CCC3B</key>
+		<string>https://github.com/grenlight/OWCollectionView.git</string>
 		<key>FABBAA17-AA32-4632-B46C-DF6D3A576A0F</key>
 		<string>https://github.com/grenlight/iOSProjects</string>
 	</dict>
@@ -17,11 +19,13 @@
 	<string>OWCollectionView/OWCollectionView.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>AFCE3F7C-159B-489A-B50F-95674B3CCC3B</key>
+		<string>../..</string>
 		<key>FABBAA17-AA32-4632-B46C-DF6D3A576A0F</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/grenlight/iOSProjects</string>
+	<string>https://github.com/grenlight/OWCollectionView.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -35,6 +39,14 @@
 			<string>FABBAA17-AA32-4632-B46C-DF6D3A576A0F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>iOSProjects</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AFCE3F7C-159B-489A-B50F-95674B3CCC3B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OWCollectionView</string>
 		</dict>
 	</array>
 </dict>
