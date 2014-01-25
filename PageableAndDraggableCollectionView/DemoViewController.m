@@ -34,7 +34,9 @@
                     @"icon_4", @"icon_5", @"icon_6", @"icon_7",
                     @"icon_8", @"icon_9", @"icon_10", @"icon_11",
                     @"icon_12", @"icon_13", @"icon_14", @"icon_15",
-                     @"icon_0", @"icon_1", @"icon_2"] mutableCopy];
+                    @"icon_0", @"icon_1", @"icon_2", @"icon_10", @"icon_11",
+                    @"icon_12", @"icon_13", @"icon_14", @"icon_15",
+                    @"icon_0", @"icon_1", @"icon_2"] mutableCopy];
     OWPagingLayout *flowLayout = [[OWPagingLayout alloc] init];
     flowLayout.itemSize = CGSizeMake(69, 85);
     flowLayout.cellCount = dataSource.count;
@@ -46,6 +48,8 @@
     collectionView.dataSource = self;
     collectionView.delegate = self;
     collectionView.owDelegate = self;
+    
+    pageControl.numberOfPages = ceil(dataSource.count/12.0f);
 }
 
 - (void)dealloc

@@ -36,8 +36,9 @@
     int row = floorf(path.row/4.0f);
     int rowOffsetX = 0;
     if (row > 2) {
-        row -= 3;
-        rowOffsetX = appWidth;
+        int pageIndex = ceil((path.row+1)/12.0f)-1;
+        row -= pageIndex*3;
+        rowOffsetX = pageIndex*appWidth;
     }
     
     int rowIndex = path.row%4;
